@@ -6,54 +6,87 @@
     <title>Puana Packaging Products Pvt Ltd</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: #f4f4f9;
             text-align: center;
+            overflow: hidden;
         }
 
         .container {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
-            transition: opacity 1s ease;
+            color: #333;
+            border-radius: 15px;
+            padding: 30px 20px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 500px;
+            transition: opacity 1s ease, transform 1s ease;
         }
 
         .hidden {
             opacity: 0;
+            transform: scale(0.8);
         }
 
         .visible {
             opacity: 1;
+            transform: scale(1);
         }
 
         h1 {
-            color: #333;
+            color: #1e3c72;
+            font-size: 2em;
+            margin: 0;
         }
 
         p {
             color: #555;
-            line-height: 1.5;
-        }
-
-        .contact {
-            margin-top: 20px;
+            line-height: 1.6;
         }
 
         .contact p {
-            margin: 5px 0;
+            margin: 10px 0;
         }
 
         .highlight {
-            color: #007bff;
+            color: #2a5298;
             font-weight: bold;
+        }
+
+        .coming-soon h1 {
+            color: #1e3c72;
+            font-size: 2.5em;
+        }
+
+        .coming-soon p {
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .coming-soon h1 {
+                font-size: 2em;
+            }
+
+            .coming-soon p {
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
@@ -71,7 +104,7 @@
         </div>
     </div>
 
-    <div class="container hidden" id="coming-soon-section">
+    <div class="container hidden coming-soon" id="coming-soon-section">
         <h1>Product Under Development</h1>
         <p>Launching Soon! Stay Tuned for Updates.</p>
     </div>
