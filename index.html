@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puana Packaging Products Pvt Ltd</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f4f4f9;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            transition: opacity 1s ease;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        .visible {
+            opacity: 1;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .contact {
+            margin-top: 20px;
+        }
+
+        .contact p {
+            margin: 5px 0;
+        }
+
+        .highlight {
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container visible" id="info-section">
+        <h1>Puana Packaging Products Pvt Ltd</h1>
+        <p>Innovative & Sustainable Packaging Solutions</p>
+        <p>Providing high-quality, cost-effective multilayer flexible packaging products.</p>
+        
+        <div class="contact">
+            <p><span class="highlight">Contact Us:</span></p>
+            <p>Email: puanaproducts@gmail.com</p>
+            <p>Phone: Sandeep Mandal - 9058370800</p>
+            <p>Phone: Chandan Singh Bisht - 98979 63106</p>
+        </div>
+    </div>
+
+    <div class="container hidden" id="coming-soon-section">
+        <h1>Product Under Development</h1>
+        <p>Launching Soon! Stay Tuned for Updates.</p>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById('info-section').classList.add('hidden');
+            document.getElementById('coming-soon-section').classList.remove('hidden');
+            document.getElementById('coming-soon-section').classList.add('visible');
+        }, 5000); // 5 seconds delay
+    </script>
+</body>
+</html>
