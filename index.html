@@ -6,115 +6,171 @@
     <title>Puana Packaging Products Pvt Ltd</title>
     <style>
         body {
+            margin: 0;
             font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, #ecedff, #a9c0d1);
+            color: #002D62;
+        }
+
+        header {
+            padding: 30px;
+            background: #002D62;
             color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             text-align: center;
-            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .container {
-            background: white;
-            color: #333;
-            border-radius: 15px;
-            padding: 30px 20px;
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-            width: 90%;
-            max-width: 500px;
-            transition: opacity 1s ease, transform 1s ease;
-        }
-
-        .hidden {
-            opacity: 0;
-            transform: scale(0.8);
-        }
-
-        .visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        h1 {
-            color: #1e3c72;
-            font-size: 2em;
+        header h1 {
+            font-size: 2.5em;
             margin: 0;
-        }
-
-        p {
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .contact p {
-            margin: 10px 0;
-        }
-
-        .highlight {
-            color: #2a5298;
             font-weight: bold;
         }
 
-        .coming-soon h1 {
-            color: #1e3c72;
-            font-size: 2.5em;
-        }
-
-        .coming-soon p {
-            color: #333;
+        header p {
+            margin: 10px 0 0;
             font-size: 1.2em;
         }
 
-        @media only screen and (max-width: 600px) {
-            .container {
-                padding: 20px 15px;
-                width: 95%;
-            }
+        main {
+            padding: 50px 20px;
+            text-align: center;
+        }
 
-            h1 {
-                font-size: 1.8em;
-            }
+        main h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #002D62;
+        }
 
-            .coming-soon h1 {
-                font-size: 2em;
-            }
+        main p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #444;
+        }
 
-            .coming-soon p {
-                font-size: 1.1em;
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background: linear-gradient(135deg, #002D62, #00509e);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            padding: 20px;
+            background: #002D62;
+            color: white;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 3px solid #002D62;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            text-align: center;
+            z-index: 1000;
+            animation: popup-show 0.5s ease;
+        }
+
+        #popup h2 {
+            margin: 0 0 15px;
+            font-size: 1.8em;
+            color: #002D62;
+        }
+
+        #popup p {
+            margin: 0 0 20px;
+            font-size: 1.2em;
+            color: #444;
+        }
+
+        @keyframes popup-show {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
             }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .contact {
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: #002D62;
+        }
+
+        .contact p {
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
-    <div class="container visible" id="info-section">
+    <!-- Header -->
+    <header>
         <h1>Puana Packaging Products Pvt Ltd</h1>
         <p>Innovative & Sustainable Packaging Solutions</p>
-        <p>Providing high-quality, cost-effective multilayer flexible packaging products.</p>
-        
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h2>About Us</h2>
+        <p>
+            We provide high-quality, cost-effective multilayer flexible packaging products that meet the diverse needs of our clients. 
+            Our state-of-the-art manufacturing facility ensures top-notch standards and sustainable solutions.
+        </p>
+
         <div class="contact">
-            <p><span class="highlight">Contact Us:</span></p>
+            <p><strong>Contact Us:</strong></p>
             <p>Email: puanaproducts@gmail.com</p>
             <p>Phone: Sandeep Mandal - 9058370800</p>
             <p>Phone: Chandan Singh Bisht - 98979 63106</p>
         </div>
-    </div>
+    </main>
 
-    <div class="container hidden coming-soon" id="coming-soon-section">
-        <h1>Product Under Development</h1>
-        <p>Launching Soon! Stay Tuned for Updates.</p>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Puana Packaging Products Pvt Ltd. All rights reserved.</p>
+    </footer>
+
+    <!-- Popup -->
+    <div id="popup">
+        <h2>Under Development</h2>
+        <p>Our product is under development and will launch soon. Stay tuned!</p>
+        <button onclick="closePopup()">Close</button>
     </div>
 
     <script>
-        setTimeout(() => {
-            document.getElementById('info-section').classList.add('hidden');
-            document.getElementById('coming-soon-section').classList.remove('hidden');
-            document.getElementById('coming-soon-section').classList.add('visible');
-        }, 5000); // 5 seconds delay
+        // Show popup after 5 seconds
+        setTimeout(function() {
+            document.getElementById('popup').style.display = 'block';
+        }, 5000);
+
+        // Close popup
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
     </script>
 </body>
 </html>
