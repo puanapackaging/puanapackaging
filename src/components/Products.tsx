@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useRef, useEffect } from 'react';
 import { Package, ShieldCheck, Zap, ArrowRight, ArrowLeft } from 'lucide-react';
 
@@ -11,69 +7,58 @@ export default function Products() {
       title: 'Multilayer Flexible Packaging',
       icon: Package,
       description: 'Advanced multilayer packaging solutions for superior protection.',
-      image: '/image/F10882 PARATHA MASALA CORRECTION 24.10.2024.jpg'
+      image: '/image/img1.jpg'
     },
     {
       title: 'Flexible Paper Packaging',
       icon: ShieldCheck,
       description: 'Eco-friendly paper-based packaging options.',
-      image: '/image/GM PAV BHAJI Rs10 7.11.2024.jpg'
+      image: 'image/Flexible Paper Packaging.jpg'
     },
     {
       title: 'Food and Beverage Packaging',
       icon: Zap,
       description: 'Specialized packaging solutions for the food industry.',
-      image: '/image/GM POHA MASALA 2.10.2024.jpg'
+      image: 'image/food.jpg'
     },
     {
       title: 'Custom Packaging',
       icon: Package,
       description: 'Tailor-made solutions for unique packaging needs.',
-      image: '/image/NANAK GOLD CORNFLAKES NAMKEEN Rs5 18.12.2024.jpg'
+      image: 'image/custom.avif'
     },
     {
       title: 'Sustainable Solutions',
       icon: ShieldCheck,
       description: 'Environmentally friendly and sustainable packaging.',
-      image: '/image/NANAK Gun Toy Puff..jpg'
+      image: 'image/sustanable.jpg'
     },
     {
       title: 'Innovative Designs',
       icon: Zap,
       description: 'Creative packaging designs to enhance brand identity.',
-      image: '/image/PAPA KI.jpg'
-    },
-    {
-      title: 'Bulk Packaging',
-      icon: Package,
-      description: 'Efficient solutions for large-scale packaging needs.',
-      image: '/image/Tulsi Dairy Fresh Skimmed Milk Powder.jpg'
-    },
-    {
-      title: 'Retail Packaging',
-      icon: ShieldCheck,
-      description: 'Attractive retail packaging to boost product visibility.',
-      image: '/image/F10882 PARATHA MASALA CORRECTION 24.10.2024.jpg'
+      image: 'image/bulb.avif'
     }
   ];
 
   const sliderRef = useRef(null);
 
-useEffect(() => {
-    const interval = setInterval(() => {
-      sliderRef.current.scrollBy({ left: 1, behavior: 'smooth' });
-      if (
-        sliderRef.current.scrollLeft + sliderRef.current.clientWidth >=
-        sliderRef.current.scrollWidth
-      ) {
-        setTimeout(() => {
+  // Automatic Scrolling Logic
+  useEffect(() => {
+    const scrollInterval = setInterval(() => {
+      if (sliderRef.current) {
+        const maxScrollLeft = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
+        if (sliderRef.current.scrollLeft >= maxScrollLeft) {
           sliderRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-        }, 1000); // Pause before restarting
+        } else {
+          sliderRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+        }
       }
-    }, 30);
-    return () => clearInterval(interval);
+    }, 3000); // Scroll every 3 seconds
+    return () => clearInterval(scrollInterval);
   }, []);
 
+  // Manual Scroll Controls
   const scrollLeft = () => {
     sliderRef.current.scrollBy({ left: -300, behavior: 'smooth' });
   };
@@ -93,32 +78,42 @@ useEffect(() => {
           </p>
         </div>
 
-        <div className="flex space-x-8 overflow-x-hidden" ref={sliderRef}>
-          {products.map((product) => {
-            return (
-              <div 
-                key={product.title} 
-                className="group relative w-80 flex-shrink-0 overflow-hidden rounded-xl border border-secondary hover:shadow-2xl transition-all duration-500"
-              >
-                <img 
-                  src={product.image} 
-                  alt={product.title}
-                  className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="p-4">
-                  <h3 className="text-xl font-bold mb-2 text-primary">{product.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-                  <button className="text-accent hover:text-primary">Learn More</button>
-                </div>
+        {/* Product Slider */}
+        <div 
+          className="flex space-x-8 overflow-x-auto no-scrollbar" 
+          ref={sliderRef}
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {products.map((product) => (
+            <div 
+              key={product.title} 
+              className="group relative w-80 flex-shrink-0 overflow-hidden rounded-xl border border-secondary hover:shadow-2xl transition-all duration-500"
+            >
+              <img 
+                src={product.image} 
+                alt={product.title}
+                className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-bold mb-2 text-primary">{product.title}</h3>
+                <p className="text-gray-600 text-sm mb-4">{product.description}</p>
+                <button className="text-accent hover:text-primary">Learn More</button>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
-        <button onClick={scrollLeft} className="absolute left-0 top-2/3 transform -translate-y-1/2 bg-accent/50 p-3 rounded-full text-white hover:bg-accent">
+        {/* Navigation Buttons */}
+        <button 
+          onClick={scrollLeft} 
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-accent/50 p-3 rounded-full text-white hover:bg-accent transition-all"
+        >
           <ArrowLeft className="h-5 w-5" />
         </button>
-        <button onClick={scrollRight} className="absolute right-0 top-2/3 transform -translate-y-1/2 bg-accent/50 p-3 rounded-full text-white hover:bg-accent">
+        <button 
+          onClick={scrollRight} 
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-accent/50 p-3 rounded-full text-white hover:bg-accent transition-all"
+        >
           <ArrowRight className="h-5 w-5" />
         </button>
       </div>
