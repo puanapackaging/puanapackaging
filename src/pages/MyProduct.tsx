@@ -1,0 +1,369 @@
+// import React, { useRef, useEffect } from 'react';
+// import { Package, ShieldCheck, Zap, ArrowRight, ArrowLeft } from 'lucide-react';
+// import Footer from '../components/Footer';
+// import Header from '../components/Header';
+
+// export default function MyProducts() {
+//   const products = [
+//     {
+//       title: 'Multilayer Flexible Packaging',
+//       icon: Package,
+//       description: 'Durable, multilayer solutions offering top-tier protection and flexibility for all industries.',
+//       image: '/image/img1.jpg'
+//     },
+//     {
+//       title: 'Flexible Paper Packaging',
+//       icon: ShieldCheck,
+//       description: 'Sustainable, paper-based options that blend eco-friendliness with strength.',
+//       image: 'image/Flexible Paper Packaging.jpg'
+//     },
+//     {
+//       title: 'Food and Beverage Packaging',
+//       icon: Zap,
+//       description: 'Specialized designs ensuring freshness, safety, and appeal for edibles.',
+//       image: 'image/food.jpg'
+//     },
+//     {
+//       title: 'Custom Packaging',
+//       icon: Package,
+//       description: 'Bespoke solutions crafted to fit your unique brand and product needs.',
+//       image: 'image/custom.avif'
+//     },
+//     {
+//       title: 'Sustainable Solutions',
+//       icon: ShieldCheck,
+//       description: 'Green packaging innovations reducing environmental impact without compromise.',
+//       image: 'image/sustanable.jpg'
+//     },
+//     {
+//       title: 'Innovative Designs',
+//       icon: Zap,
+//       description: 'Eye-catching, creative packaging that amplifies your brand’s identity.',
+//       image: 'image/bulb.avif'
+//     }
+//   ];
+
+//   const sliderRef = useRef(null);
+
+//   // Automatic Scrolling Logic
+//   useEffect(() => {
+//     const scrollInterval = setInterval(() => {
+//       if (sliderRef.current) {
+//         const maxScrollLeft = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
+//         if (sliderRef.current.scrollLeft >= maxScrollLeft) {
+//           sliderRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+//         } else {
+//           sliderRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+//         }
+//       }
+//     }, 3000); // Scroll every 3 seconds
+//     return () => clearInterval(scrollInterval);
+//   }, []);
+
+//   // Manual Scroll Controls
+//   const scrollLeft = () => {
+//     sliderRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+//   };
+
+//   const scrollRight = () => {
+//     sliderRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+//   };
+
+//   return (
+//     <div>
+//       <Header/>
+//       <section id="products" className="py-16 bg-white relative overflow-hidden">
+//       {/* Banner Section */}
+//       <div 
+//         className="h-80 md:h-96 bg-cover bg-center flex items-center justify-center text-white relative"
+//         style={{ backgroundImage: "url('image/product.jpg')" }}
+//       >
+//         <div className="absolute inset-0 bg-black/50"></div>
+//         <div className="z-10 text-center">
+//           <h1 className="text-4xl md:text-6xl font-bold text-accent shadow-lg animate-fade-in">Our Products</h1>
+//           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
+//             Innovative packaging solutions designed to protect, preserve, and impress.
+//           </p>
+//         </div>
+//       </div>
+
+//       <div className="container mx-auto px-4">
+//         <div className="text-center mt-12 mb-16">
+//           <span className="text-accent font-semibold text-xl md:text-2xl mb-4 block animate-slide-up">OUR SOLUTIONS</span>
+//           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">Explore Our Product Range</h2>
+//           <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+//             Dive into our versatile lineup of flexible packaging solutions, meticulously crafted to cater to the evolving demands of modern industries—delivering quality, sustainability, and innovation in every design.
+//           </p>
+//         </div>
+
+//         {/* Product Slider */}
+//         <div className="relative">
+//           <div 
+//             className="flex space-x-6 overflow-x-auto no-scrollbar snap-x snap-mandatory py-4" 
+//             ref={sliderRef}
+//             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+//           >
+//             {products.map((product) => (
+//               <div 
+//                 key={product.title} 
+//                 className="group relative w-72 md:w-80 flex-shrink-0 snap-center overflow-hidden rounded-xl border border-secondary hover:shadow-2xl transition-all duration-500 bg-white"
+//               >
+//                 <div className="relative overflow-hidden">
+//                   <img 
+//                     src={product.image} 
+//                     alt={product.title}
+//                     className="w-full h-48 md:h-60 object-cover transition-transform duration-500 group-hover:scale-110"
+//                   />
+//                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+//                 </div>
+//                 <div className="p-5">
+//                   <product.icon className="h-8 w-8 text-accent mb-3" />
+//                   <h3 className="text-lg md:text-xl font-bold mb-2 text-primary">{product.title}</h3>
+//                   <p className="text-gray-600 text-sm md:text-base mb-4">{product.description}</p>
+//                   <button className="flex items-center text-accent font-semibold hover:text-primary transition-colors">
+//                     Learn More <ArrowRight className="ml-2 h-4 w-4" />
+//                   </button>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+
+//           {/* Navigation Buttons */}
+//           <button 
+//             onClick={scrollLeft} 
+//             className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-accent/70 p-2 md:p-3 rounded-full text-white hover:bg-accent transition-all focus:outline-none"
+//           >
+//             <ArrowLeft className="h-5 w-5 md:h-6 md:w-6" />
+//           </button>
+//           <button 
+//             onClick={scrollRight} 
+//             className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-accent/70 p-2 md:p-3 rounded-full text-white hover:bg-accent transition-all focus:outline-none"
+//           >
+//             <ArrowRight className="h-5 w-5 md:h-6 md:w-6" />
+//           </button>
+//         </div>
+
+//         {/* Additional Dummy Content */}
+//         <div className="mt-20 text-center">
+//           <h3 className="text-3xl md:text-4xl font-bold text-primary mb-12 animate-slide-up">Why Our Products Stand Out</h3>
+//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+//             <div className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
+//               <ShieldCheck className="h-12 w-12 text-accent mx-auto mb-4" />
+//               <h4 className="text-xl font-semibold text-primary mb-2">Unmatched Durability</h4>
+//               <p className="text-gray-600">Engineered to withstand the toughest conditions, keeping your products secure.</p>
+//             </div>
+//             <div className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
+//               <Zap className="h-12 w-12 text-accent mx-auto mb-4" />
+//               <h4 className="text-xl font-semibold text-primary mb-2">Cutting-Edge Technology</h4>
+//               <p className="text-gray-600">Leveraging the latest advancements for smarter, more efficient packaging.</p>
+//             </div>
+//             <div className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
+//               <Package className="h-12 w-12 text-accent mx-auto mb-4" />
+//               <h4 className="text-xl font-semibold text-primary mb-2">Versatile Applications</h4>
+//               <p className="text-gray-600">From food to industrial goods, we’ve got every sector covered.</p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//     <Footer/>
+//     </div>
+//   );
+// }
+
+
+import React, { useRef, useEffect } from 'react';
+import { Package, ShieldCheck, Zap, ArrowRight, ArrowLeft, Leaf, Globe2, Star, Layers } from 'lucide-react';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+
+export default function MyProducts() {
+  const products = [
+    {
+      title: 'Multilayer Flexible Packaging',
+      icon: Layers,
+      description: 'Robust, multilayer designs providing exceptional protection and adaptability across industries.',
+      image: '/image/img1.jpg'
+    },
+    {
+      title: 'Flexible Paper Packaging',
+      icon: Leaf,
+      description: 'Eco-conscious, durable paper solutions merging sustainability with practicality.',
+      image: 'image/Flexible Paper Packaging.jpg'
+    },
+    {
+      title: 'Food and Beverage Packaging',
+      icon: Zap,
+      description: 'Tailored packaging ensuring taste, safety, and shelf-life for culinary delights.',
+      image: 'image/food.jpg'
+    },
+    {
+      title: 'Custom Packaging',
+      icon: Package,
+      description: 'Personalized designs crafted to elevate your brand’s unique story.',
+      image: 'image/custom.avif'
+    },
+    {
+      title: 'Sustainable Solutions',
+      icon: Globe2,
+      description: 'Green innovations minimizing ecological footprints with maximum efficiency.',
+      image: 'image/sustanable.jpg'
+    },
+    {
+      title: 'Innovative Designs',
+      icon: Star,
+      description: 'Striking, creative packaging that makes your brand unforgettable.',
+      image: 'image/bulb.avif'
+    }
+  ];
+
+  const sliderRef = useRef(null);
+
+  // Automatic Scrolling Logic
+  useEffect(() => {
+    const scrollInterval = setInterval(() => {
+      if (sliderRef.current) {
+        const maxScrollLeft = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
+        if (sliderRef.current.scrollLeft >= maxScrollLeft) {
+          sliderRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          sliderRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+      }
+    }, 3000); // Scroll every 3 seconds
+    return () => clearInterval(scrollInterval);
+  }, []);
+
+  // Manual Scroll Controls
+  const scrollLeft = () => sliderRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+  const scrollRight = () => sliderRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <section id="products" className="py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden flex-grow">
+        {/* Banner Section */}
+        <div
+          className="h-80 md:h-96 bg-cover bg-center flex items-center justify-center text-white relative"
+          style={{ backgroundImage: "url('image/product.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
+          <div className="z-10 text-center px-4">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-accent drop-shadow-lg animate-fade-in">
+              Discover Our Products
+            </h1>
+            <p className="mt-4 text-lg md:text-2xl max-w-3xl mx-auto font-light">
+              Cutting-edge packaging solutions crafted to protect, inspire, and sustain.
+            </p>
+            <button className="mt-6 px-6 py-2 bg-accent text-white rounded-full hover:bg-primary transition-all">
+              Explore Now
+            </button>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4">
+          {/* Intro Section */}
+          <div className="text-center mt-12 mb-16">
+            <span className="text-accent font-semibold text-xl md:text-2xl mb-4 block animate-slide-up tracking-wide">
+              OUR SOLUTIONS
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+              Explore Our Diverse Product Range
+            </h2>
+            <p className="text-base md:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              Step into a world of innovative packaging where quality meets creativity. Our meticulously designed solutions cater to every industry need, blending sustainability, durability, and standout aesthetics to elevate your products.
+            </p>
+          </div>
+
+          {/* Product Slider */}
+          <div className="relative">
+            <div
+              className="flex space-x-6 overflow-x-auto no-scrollbar snap-x snap-mandatory py-6 px-2"
+              ref={sliderRef}
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {products.map((product) => (
+                <div
+                  key={product.title}
+                  className="group relative w-72 md:w-80 flex-shrink-0 snap-center overflow-hidden rounded-2xl border border-secondary hover:shadow-2xl transition-all duration-500 bg-white"
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-48 md:h-60 object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                      <span className="text-white p-4 text-sm font-semibold">{product.title}</span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <product.icon className="h-10 w-10 text-accent mb-4" />
+                    <h3 className="text-lg md:text-xl font-bold mb-2 text-primary">{product.title}</h3>
+                    <p className="text-gray-600 text-sm md:text-base mb-4">{product.description}</p>
+                    <button className="flex items-center text-accent font-semibold hover:text-primary transition-colors group-hover:underline">
+                      Learn More <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Navigation Buttons */}
+            <button
+              onClick={scrollLeft}
+              className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-accent/80 p-3 md:p-4 rounded-full text-white hover:bg-accent transition-all shadow-lg hover:scale-110"
+            >
+              <ArrowLeft className="h-5 w-5 md:h-6 md:w-6" />
+            </button>
+            <button
+              onClick={scrollRight}
+              className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-accent/80 p-3 md:p-4 rounded-full text-white hover:bg-accent transition-all shadow-lg hover:scale-110"
+            >
+              <ArrowRight className="h-5 w-5 md:h-6 md:w-6" />
+            </button>
+          </div>
+
+          {/* Why Our Products Stand Out */}
+          <div className="mt-20 text-center">
+            <h3 className="text-3xl md:text-4xl font-bold text-primary mb-12 animate-slide-up">What Sets Us Apart</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border-t-4 border-accent">
+                <ShieldCheck className="h-12 w-12 text-accent mx-auto mb-4" />
+                <h4 className="text-xl font-semibold text-primary mb-2">Unmatched Durability</h4>
+                <p className="text-gray-600">Built to endure extreme conditions, ensuring your products stay safe and intact.</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border-t-4 border-accent">
+                <Zap className="h-12 w-12 text-accent mx-auto mb-4" />
+                <h4 className="text-xl font-semibold text-primary mb-2">Cutting-Edge Tech</h4>
+                <p className="text-gray-600">Powered by advanced innovations for smarter, more efficient packaging.</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border-t-4 border-accent">
+                <Globe2 className="h-12 w-12 text-accent mx-auto mb-4" />
+                <h4 className="text-xl font-semibold text-primary mb-2">Global Standards</h4>
+                <p className="text-gray-600">Compliant with international benchmarks for quality and sustainability.</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border-t-4 border-accent">
+                <Star className="h-12 w-12 text-accent mx-auto mb-4" />
+                <h4 className="text-xl font-semibold text-primary mb-2">Standout Designs</h4>
+                <p className="text-gray-600">Visually stunning solutions that make your brand shine on every shelf.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Section: Our Commitment */}
+          <div className="mt-20 bg-gradient-to-r from-primary to-accent text-white py-12 px-6 rounded-2xl shadow-2xl text-center">
+            <h3 className="text-3xl md:text-4xl font-bold mb-6">Our Commitment to Excellence</h3>
+            <p className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed">
+              At Puana Packaging, we’re more than just a provider—we’re your partner in progress. Our products are designed with precision, passion, and a promise to deliver unparalleled quality, sustainability, and innovation. Let’s shape the future of packaging together.
+            </p>
+            <button className="mt-8 px-8 py-3 bg-white text-primary font-semibold rounded-full hover:bg-gray-100 transition-all shadow-md">
+              Get Started Today
+            </button>
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </div>
+  );
+}
