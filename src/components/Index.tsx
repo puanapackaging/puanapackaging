@@ -7,6 +7,7 @@ import Facilities from './Facilities';
 import Clients from './Clients';
 import Contact from './Contact';
 import Footer from './Footer';
+import Testimonials from './Clients';
 
 function LandingPage() {
   return (
@@ -18,6 +19,7 @@ function LandingPage() {
         <Products />
         <Facilities />
         {/* <Clients /> */}
+        <Testimonials/>
         <Contact />
       </main>
       <Footer />

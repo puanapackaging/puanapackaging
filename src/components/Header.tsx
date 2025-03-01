@@ -2,55 +2,82 @@
 
 // import React, { useState } from 'react';
 // import { Link, useNavigate } from 'react-router-dom';
-// import {  Phone, Mail, Menu } from 'lucide-react';
+// import { Phone, Mail, Menu } from 'lucide-react';
 
 // // Define props interface (empty since Header takes no props)
 // interface HeaderProps {}
+
+// // Define the proper type for the logo click handler
+// type HandleLogoClick = () => void;
 
 // const Header: React.FC<HeaderProps> = () => {
 //   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 //   const navigate = useNavigate();
 
-//   // Handle logo and title click
-//   const handleLogoClick = (): void => {
+//   // Handle logo and title click with proper typing
+//   const handleLogoClick: HandleLogoClick = () => {
 //     navigate('/');
-//     setIsMenuOpen(false); // Close mobile menu if open
+//     setIsMenuOpen(false);
 //   };
 
 //   return (
 //     <header className="fixed w-full bg-white shadow-md z-50">
 //       <div className="container mx-auto px-4">
 //         <div className="flex items-center justify-between h-20">
-         
-
-//             <button
-//              onClick={handleLogoClick}
-//              className="flex items-center focus:outline-none"
-//                    >
-//              <img src="/output-onlinepngtools.png" alt="Puana Packaging rounded-xl Products" className="h-10 w-16" />
-//               <span className="ml-2 text-xl font-bold text-primary">
-//                 Puana Packaging Products
-//              </span>
-//             </button>
+//           <button
+//             onClick={handleLogoClick}
+//             className="flex items-center focus:outline-none"
+//             type="button"
+//           >
+//             <img 
+//               src="/output-onlinepngtools.png" 
+//               alt="Puana Packaging Products" 
+//               className="h-10 w-16 rounded-xl"
+//               onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+//                 e.currentTarget.src = '/fallback-image.png'; // Optional: Add fallback image
+//               }}
+//             />
+//             <span className="ml-2 text-xl font-bold text-primary">
+//               Puana Packaging Products
+//             </span>
+//           </button>
 
 //           {/* Desktop Navigation */}
 //           <nav className="hidden md:flex space-x-8">
-//             <Link to="/" className="text-gray-700 hover:text-primary transition-colors">
+//             <Link 
+//               to="/" 
+//               className="text-gray-700 hover:text-primary transition-colors"
+//             >
 //               Home
 //             </Link>
-//             <Link to="/about" className="text-gray-700 hover:text-primary transition-colors">
+//             <Link 
+//               to="/about" 
+//               className="text-gray-700 hover:text-primary transition-colors"
+//             >
 //               About Us
 //             </Link>
-//             <Link to="/product" className="text-gray-700 hover:text-primary transition-colors">
+//             <Link 
+//               to="/product" 
+//               className="text-gray-700 hover:text-primary transition-colors"
+//             >
 //               Products
 //             </Link>
-//             <Link to="/facility" className="text-gray-700 hover:text-primary transition-colors">
+//             <Link 
+//               to="/facility" 
+//               className="text-gray-700 hover:text-primary transition-colors"
+//             >
 //               Facilities
 //             </Link>
-//             <Link to="/careers" className="text-gray-700 hover:text-primary transition-colors">
+//             <Link 
+//               to="/careers" 
+//               className="text-gray-700 hover:text-primary transition-colors"
+//             >
 //               Career
 //             </Link>
-//             <Link to="/contact" className="text-gray-700 hover:text-primary transition-colors">
+//             <Link 
+//               to="/contact" 
+//               className="text-gray-700 hover:text-primary transition-colors"
+//             >
 //               Contact Us
 //             </Link>
 //           </nav>
@@ -70,7 +97,9 @@
 //           {/* Mobile Menu Button */}
 //           <button
 //             className="md:hidden"
-//             onClick={() => setIsMenuOpen(!isMenuOpen)}
+//             onClick={() => setIsMenuOpen(prev => !prev)}
+//             type="button"
+//             aria-label="Toggle mobile menu"
 //           >
 //             <Menu className="h-6 w-6 text-primary" />
 //           </button>
@@ -80,48 +109,23 @@
 //         {isMenuOpen && (
 //           <div className="md:hidden py-4 bg-white">
 //             <div className="flex flex-col space-y-4">
-//               <Link
-//                 to="/"
-//                 className="text-gray-700 hover:text-primary transition-colors px-4"
-//                 onClick={() => setIsMenuOpen(false)}
-//               >
-//                 Home
-//               </Link>
-//               <Link
-//                 to="/about"
-//                 className="text-gray-700 hover:text-primary transition-colors px-4"
-//                 onClick={() => setIsMenuOpen(false)}
-//               >
-//                 About Us
-//               </Link>
-//               <Link
-//                 to="/product"
-//                 className="text-gray-700 hover:text-primary transition-colors px-4"
-//                 onClick={() => setIsMenuOpen(false)}
-//               >
-//                 Products
-//               </Link>
-//               <Link
-//                 to="/facility"
-//                 className="text-gray-700 hover:text-primary transition-colors px-4"
-//                 onClick={() => setIsMenuOpen(false)}
-//               >
-//                 Facilities
-//               </Link>
-//               <Link
-//                 to="/careers"
-//                 className="text-gray-700 hover:text-primary transition-colors px-4"
-//                 onClick={() => setIsMenuOpen(false)}
-//               >
-//                 Career
-//               </Link>
-//               <Link
-//                 to="/contact"
-//                 className="text-gray-700 hover:text-primary transition-colors px-4"
-//                 onClick={() => setIsMenuOpen(false)}
-//               >
-//                 Contact Us
-//               </Link>
+//               {[
+//                 { to: '/', label: 'Home' },
+//                 { to: '/about', label: 'About Us' },
+//                 { to: '/product', label: 'Products' },
+//                 { to: '/facility', label: 'Facilities' },
+//                 { to: '/careers', label: 'Career' },
+//                 { to: '/contact', label: 'Contact Us' },
+//               ].map((item) => (
+//                 <Link
+//                   key={item.to}
+//                   to={item.to}
+//                   className="text-gray-700 hover:text-primary transition-colors px-4"
+//                   onClick={() => setIsMenuOpen(false)}
+//                 >
+//                   {item.label}
+//                 </Link>
+//               ))}
 //             </div>
 //           </div>
 //         )}
@@ -132,9 +136,9 @@
 
 // export default Header;
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Phone, Mail, Menu } from 'lucide-react';
+import { Phone, Mail, Menu, X } from 'lucide-react';
 
 // Define props interface (empty since Header takes no props)
 interface HeaderProps {}
@@ -142,9 +146,30 @@ interface HeaderProps {}
 // Define the proper type for the logo click handler
 type HandleLogoClick = () => void;
 
+// Define interface for nav links
+interface NavLink {
+  to: string;
+  label: string;
+}
+
 const Header: React.FC<HeaderProps> = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  // Handle scroll event to change header background and text color
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Handle logo and title click with proper typing
   const handleLogoClick: HandleLogoClick = () => {
@@ -152,112 +177,186 @@ const Header: React.FC<HeaderProps> = () => {
     setIsMenuOpen(false);
   };
 
+  const navLinks: NavLink[] = [
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'About Us' },
+    { to: '/product', label: 'Products' },
+    { to: '/facility', label: 'Facilities' },
+    { to: '/careers', label: 'Career' },
+    { to: '/contact', label: 'Contact Us' },
+  ];
+
   return (
-    <header className="fixed w-full bg-white shadow-md z-50">
+    <header
+      className={`fixed w-full shadow-md z-50 transition-all duration-500 ease-in-out ${
+        isScrolled
+          ? 'bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900 backdrop-blur-md text-white'
+          : 'bg-white text-gray-900'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
+          {/* Logo Section */}
           <button
             onClick={handleLogoClick}
-            className="flex items-center focus:outline-none"
+            className="flex items-center focus:outline-none group"
             type="button"
+            aria-label="Go to homepage"
           >
-            <img 
-              src="/output-onlinepngtools.png" 
-              alt="Puana Packaging Products" 
-              className="h-10 w-16 rounded-xl"
+            <img
+              src="/output-onlinepngtools.png"
+              alt="Puana Packaging Products Logo"
+              className="h-10 w-16 rounded-xl transition-transform duration-300 group-hover:scale-105"
               onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
                 e.currentTarget.src = '/fallback-image.png'; // Optional: Add fallback image
               }}
             />
-            <span className="ml-2 text-xl font-bold text-primary">
+            <span
+              className={`ml-2 text-xl font-bold transition-colors duration-300 ${
+                isScrolled ? 'text-white' : 'text-primary'
+              }`}
+            >
               Puana Packaging Products
             </span>
           </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link 
-              to="/" 
-              className="text-gray-700 hover:text-primary transition-colors"
-            >
-              Home
-            </Link>
-            <Link 
-              to="/about" 
-              className="text-gray-700 hover:text-primary transition-colors"
-            >
-              About Us
-            </Link>
-            <Link 
-              to="/product" 
-              className="text-gray-700 hover:text-primary transition-colors"
-            >
-              Products
-            </Link>
-            <Link 
-              to="/facility" 
-              className="text-gray-700 hover:text-primary transition-colors"
-            >
-              Facilities
-            </Link>
-            <Link 
-              to="/careers" 
-              className="text-gray-700 hover:text-primary transition-colors"
-            >
-              Career
-            </Link>
-            <Link 
-              to="/contact" 
-              className="text-gray-700 hover:text-primary transition-colors"
-            >
-              Contact Us
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`font-medium transition-colors duration-300 relative group ${
+                  isScrolled
+                    ? 'text-white hover:text-gray-200'
+                    : 'text-gray-700 hover:text-primary'
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                    isScrolled ? 'bg-gray-200' : 'bg-primary'
+                  }`}
+                />
+              </Link>
+            ))}
           </nav>
 
           {/* Contact Info */}
           <div className="hidden lg:flex items-center space-x-6">
-            <div className="flex items-center text-sm">
-              <Phone className="h-4 w-4 text-accent mr-2" />
-              <span className="text-primary">+91 90583 70800</span>
-            </div>
-            <div className="flex items-center text-sm">
-              <Mail className="h-4 w-4 text-accent mr-2" />
-              <span className="text-primary">puanaproducts@gmail.com</span>
-            </div>
+            <a
+              href="tel:+919058370800"
+              className={`flex items-center text-sm transition-colors duration-300 ${
+                isScrolled ? 'text-white hover:text-gray-200' : 'text-primary hover:text-accent'
+              }`}
+              aria-label="Call us at +91 90583 70800"
+            >
+              <Phone
+                className={`h-4 w-4 mr-2 ${
+                  isScrolled ? 'text-gray-200' : 'text-accent'
+                }`}
+              />
+              <span>+91 90583 70800</span>
+            </a>
+            <a
+              href="mailto:puanaproducts@gmail.com"
+              className={`flex items-center text-sm transition-colors duration-300 ${
+                isScrolled ? 'text-white hover:text-gray-200' : 'text-primary hover:text-accent'
+              }`}
+              aria-label="Email us at puanaproducts@gmail.com"
+            >
+              <Mail
+                className={`h-4 w-4 mr-2 ${
+                  isScrolled ? 'text-gray-200' : 'text-accent'
+                }`}
+              />
+              <span>puanaproducts@gmail.com</span>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             className="md:hidden"
-            onClick={() => setIsMenuOpen(prev => !prev)}
+            onClick={() => setIsMenuOpen((prev) => !prev)}
             type="button"
-            aria-label="Toggle mobile menu"
+            aria-label={isMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
+            aria-expanded={isMenuOpen}
           >
-            <Menu className="h-6 w-6 text-primary" />
+            {isMenuOpen ? (
+              <X
+                className={`h-6 w-6 ${
+                  isScrolled ? 'text-white' : 'text-primary'
+                }`}
+              />
+            ) : (
+              <Menu
+                className={`h-6 w-6 ${
+                  isScrolled ? 'text-white' : 'text-primary'
+                }`}
+              />
+            )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 bg-white">
+          <div
+            className={`md:hidden py-4 transition-all duration-300 ${
+              isScrolled
+                ? 'bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900 text-white'
+                : 'bg-white text-gray-700'
+            }`}
+          >
             <div className="flex flex-col space-y-4">
-              {[
-                { to: '/', label: 'Home' },
-                { to: '/about', label: 'About Us' },
-                { to: '/product', label: 'Products' },
-                { to: '/facility', label: 'Facilities' },
-                { to: '/careers', label: 'Career' },
-                { to: '/contact', label: 'Contact Us' },
-              ].map((item) => (
+              {navLinks.map((link) => (
                 <Link
-                  key={item.to}
-                  to={item.to}
-                  className="text-gray-700 hover:text-primary transition-colors px-4"
+                  key={link.to}
+                  to={link.to}
+                  className={`px-4 py-2 transition-colors duration-300 ${
+                    isScrolled
+                      ? 'text-white hover:bg-purple-800 hover:text-gray-200'
+                      : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item.label}
+                  {link.label}
                 </Link>
               ))}
+              {/* Mobile Contact Info */}
+              <div className="px-4 pt-4 border-t border-gray-200">
+                <a
+                  href="tel:+919058370800"
+                  className={`flex items-center text-sm py-2 transition-colors duration-300 ${
+                    isScrolled
+                      ? 'text-white hover:text-gray-200'
+                      : 'text-primary hover:text-accent'
+                  }`}
+                  aria-label="Call us at +91 90583 70800"
+                >
+                  <Phone
+                    className={`h-4 w-4 mr-2 ${
+                      isScrolled ? 'text-gray-200' : 'text-accent'
+                    }`}
+                  />
+                  <span>+91 90583 70800</span>
+                </a>
+                <a
+                  href="mailto:puanaproducts@gmail.com"
+                  className={`flex items-center text-sm py-2 transition-colors duration-300 ${
+                    isScrolled
+                      ? 'text-white hover:text-gray-200'
+                      : 'text-primary hover:text-accent'
+                  }`}
+                  aria-label="Email us at puanaproducts@gmail.com"
+                >
+                  <Mail
+                    className={`h-4 w-4 mr-2 ${
+                      isScrolled ? 'text-gray-200' : 'text-accent'
+                    }`}
+                  />
+                  <span>puanaproducts@gmail.com</span>
+                </a>
+              </div>
             </div>
           </div>
         )}
