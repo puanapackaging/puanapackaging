@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { Printer, Wrench, FlaskRound as Flask, Factory, ArrowRight } from 'lucide-react';
 
@@ -11,7 +13,12 @@ export default function Facilities() {
         'Rotogravure Printing (8 Color) - Lapra',
         'Lamination Machine - Lapra',
         'Slitting Machine - Lapra',
-        'Pouch Making Machine - Mamta Machinery'
+        'Slitting cum Inspection Machine - Lapra',
+        'Pouch Making Machine - Mamta Machinery',
+        'Hot Air Generator System - Heat Max',
+        'Compressors (2 Nos) - ELGI',
+        'Handle Fixing Machine',
+        'Core Cutting Machine'
       ]
     },
     {
@@ -22,7 +29,11 @@ export default function Facilities() {
         'Dart Impact Tester - Presto',
         'MBTL Light Fastness Tester - Presto',
         'Color Matching Cabinet - Presto',
-        'Tensile Testing Machine - Presto'
+        'Tensile Testing Machine - Presto',
+        'Co-Efficient of Friction - Presto',
+        'Hot Air Oven - Presto',
+        'Tearing Strength Tester - Presto',
+        'Bursting Strength Tester - Presto'
       ]
     }
   ];
@@ -76,6 +87,7 @@ export default function Facilities() {
           <div className="absolute top-0 right-0 w-1/3 h-full bg-secondary/10 transform rotate-12 translate-x-1/3" />
           <div className="relative">
             <h3 className="text-2xl font-bold mb-6 text-primary">Future Expansion Plans</h3>
+            <p className="text-gray-700 mb-6">The above list is for major machines/equipment. Apart from this, we have many more handling and measuring equipment. We also plan to add more machines like Flexo Printing, Stitching, Extrusion Coating, and Paper Coating in the immediate future. We are willing and capable of acquiring any machines to fulfill our customer requirements.</p>
             <div className="grid md:grid-cols-2 gap-6">
               {['Flexo Printing', 'Stitching', 'Extrusion Coating', 'Paper Coating'].map((item) => (
                 <div key={item} className="flex items-center group">
@@ -86,10 +98,7 @@ export default function Facilities() {
                 </div>
               ))}
             </div>
-            <button className="mt-8 flex items-center text-accent hover:text-primary transition-colors group">
-              Learn More About Our Expansion
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+         
           </div>
         </div>
       </div>

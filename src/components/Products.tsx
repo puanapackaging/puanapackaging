@@ -1,49 +1,59 @@
+
+
 import React, { useRef, useEffect } from 'react';
 import { Package, ShieldCheck, Zap, ArrowRight, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-export default function Products() {
-  const products = [
+interface Product {
+  title: string;
+  icon: React.ElementType;
+  description: string;
+  image: string;
+}
+
+const Products: React.FC = () => {
+  const navigate = useNavigate();
+  const sliderRef = useRef<HTMLDivElement | null>(null);
+
+  const products: Product[] = [
     {
       title: 'Multilayer Flexible Packaging',
       icon: Package,
       description: 'Advanced multilayer packaging solutions for superior protection.',
-      image: '/image/img1.jpg'
+      image: '/image/img1.jpg',
     },
     {
-      title: 'Flexible Paper Packaging',
+      title: 'Flexible Product Packaging',
       icon: ShieldCheck,
       description: 'Eco-friendly paper-based packaging options.',
-      image: 'image/Flexible Paper Packaging.jpg'
+      image: 'new/img4.jpg',
     },
     {
       title: 'Food and Beverage Packaging',
       icon: Zap,
       description: 'Specialized packaging solutions for the food industry.',
-      image: 'image/food.jpg'
+      image: '/food_foil 2.1.jpg',
     },
     {
       title: 'Custom Packaging',
       icon: Package,
       description: 'Tailor-made solutions for unique packaging needs.',
-      image: 'image/custom.avif'
+      image: 'new/img3.jpg',
     },
     {
       title: 'Sustainable Solutions',
       icon: ShieldCheck,
       description: 'Environmentally friendly and sustainable packaging.',
-      image: 'image/sustanable.jpg'
+      image: 'new/img2.webp',
     },
     {
       title: 'Innovative Designs',
       icon: Zap,
       description: 'Creative packaging designs to enhance brand identity.',
-      image: 'image/bulb.avif'
-    }
+      image: '/2065.jpg',
+    },
   ];
 
-  const sliderRef = useRef(null);
-
-  // Automatic Scrolling Logic
   useEffect(() => {
     const scrollInterval = setInterval(() => {
       if (sliderRef.current) {
@@ -54,17 +64,24 @@ export default function Products() {
           sliderRef.current.scrollBy({ left: 300, behavior: 'smooth' });
         }
       }
-    }, 3000); // Scroll every 3 seconds
+    }, 3000);
     return () => clearInterval(scrollInterval);
   }, []);
 
-  // Manual Scroll Controls
   const scrollLeft = () => {
-    sliderRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    }
   };
 
   const scrollRight = () => {
-    sliderRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  };
+
+  const handleLearnMore = () => {
+    navigate('/product');
   };
 
   return (
@@ -78,45 +95,46 @@ export default function Products() {
           </p>
         </div>
 
-        {/* Product Slider */}
-        <div 
-          className="flex space-x-8 overflow-x-auto no-scrollbar" 
+        <div
+          className="flex space-x-8 overflow-x-auto no-scrollbar"
           ref={sliderRef}
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {products.map((product) => (
-            <div 
-              key={product.title} 
+            <div
+              key={product.title}
               className="group relative w-80 flex-shrink-0 overflow-hidden rounded-xl border border-secondary hover:shadow-2xl transition-all duration-500"
             >
-              <img 
-                src={product.image} 
+              <img
+                src={product.image}
                 alt={product.title}
                 className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="p-4">
                 <h3 className="text-xl font-bold mb-2 text-primary">{product.title}</h3>
                 <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-                <button className="text-accent hover:text-primary">Learn More</button>
+                <button onClick={handleLearnMore} className="text-accent hover:text-primary">Learn More</button>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Navigation Buttons */}
-        <button 
-          onClick={scrollLeft} 
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-accent/50 p-3 rounded-full text-white hover:bg-accent transition-all"
+        <button
+          onClick={scrollLeft}
+          className="absolute left-4 top-2/3 transform -translate-y-1/2 bg-accent/50 p-3 rounded-full text-white hover:bg-accent transition-all"
         >
           <ArrowLeft className="h-5 w-5" />
         </button>
-        <button 
-          onClick={scrollRight} 
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-accent/50 p-3 rounded-full text-white hover:bg-accent transition-all"
+        <button
+          onClick={scrollRight}
+          className="absolute right-4 top-2/3 transform -translate-y-1/2 bg-accent/50 p-3 rounded-full text-white hover:bg-accent transition-all"
         >
           <ArrowRight className="h-5 w-5" />
         </button>
       </div>
     </section>
   );
-}
+};
+
+export default Products;
+

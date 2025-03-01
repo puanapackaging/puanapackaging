@@ -24,7 +24,7 @@ export default function About() {
           <span className="text-accent font-semibold text-xl mb-2 block">WHO WE ARE</span>
           <h2 className="text-4xl font-bold mb-6 text-primary">About Us</h2>
           <p className="text-xl text-gray-700">
-            Leading the way in innovative and sustainable packaging solutions, committed to excellence
+            Leading the way in innovative and sustainable flexible  packaging solutions, committed to excellence
             and customer satisfaction since 2017.
           </p>
         </div>

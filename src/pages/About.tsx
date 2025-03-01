@@ -15,14 +15,14 @@ export default function About() {
 
   const whyChooseUs = [
     { icon: ShieldCheck, title: 'Unmatched Safety Standards', desc: 'Ensuring every package meets rigorous safety and hygiene benchmarks.' },
-    { icon: Globe2, title: 'Worldwide Impact', desc: 'Delivering seamless packaging solutions to clients across the globe.' },
+    { icon: Globe2, title: 'All India Impact', desc: 'Delivering seamless packaging solutions to clients across the globe.' },
     { icon: ThumbsUp, title: 'Value-Driven Excellence', desc: 'Affordable, high-quality packaging that elevates your brand.' }
   ];
 
   const ourJourney = [
     { year: '2015', milestone: 'Founded M/S Puana Packaging with a vision to revolutionize the industry.' },
     { year: '2018', milestone: 'Introduced our first eco-friendly multilayer packaging line.' },
-    { year: '2022', milestone: 'Expanded operations globally, serving over 50 countries.' }
+    { year: '2022', milestone: 'Expanded operations globally, serving all over india ' }
   ];
 
   return (
