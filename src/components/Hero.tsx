@@ -9,9 +9,9 @@ const Hero: React.FC<HeroProps> = () => {
   const [currentImage, setCurrentImage] = useState<number>(0);
   const navigate = useNavigate();
   const images: string[] = [
-    '/landingmain.jpg',
-    '/img10.jpg',
-    '/2065.jpg',
+    '/landingmain.webp',
+    '/img10.webp',
+    '/2065.webp',
   ];
 
   // Effect to change image every 10 seconds

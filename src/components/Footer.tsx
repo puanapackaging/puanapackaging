@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-6">
-              <Package2 className="h-8 w-8 text-secondary" />
-              <span className="ml-2 text-xl font-bold">Puana Packaging</span>
+            <img src="/output-onlinepngtools.png" alt="Puana Packaging rounded-xl Products" className="h-10 w-16" />
+              <span className="ml-2 text-2xl font-bold">Puana Packaging</span>
             </div>
             <p className="text-secondary">
               Leading manufacturer of innovative and sustainable packaging solutions.

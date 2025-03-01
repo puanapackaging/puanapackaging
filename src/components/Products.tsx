@@ -20,7 +20,7 @@ const Products: React.FC = () => {
       title: 'Multilayer Flexible Packaging',
       icon: Package,
       description: 'Advanced multilayer packaging solutions for superior protection.',
-      image: '/image/img1.jpg',
+      image: '/new/food-2.jpg',
     },
     {
       title: 'Flexible Product Packaging',
@@ -44,13 +44,13 @@ const Products: React.FC = () => {
       title: 'Sustainable Solutions',
       icon: ShieldCheck,
       description: 'Environmentally friendly and sustainable packaging.',
-      image: 'new/img2.webp',
+      image: 'new/diaper.avif',
     },
     {
       title: 'Innovative Designs',
       icon: Zap,
       description: 'Creative packaging designs to enhance brand identity.',
-      image: '/2065.jpg',
+      image: '/new/dog-food.jpg',
     },
   ];
 

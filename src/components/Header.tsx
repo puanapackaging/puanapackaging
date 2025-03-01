@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo and Title with navigation */}
-          <button
+          {/* <button
             onClick={handleLogoClick}
             className="flex items-center focus:outline-none"
           >
@@ -30,7 +30,17 @@ const Header: React.FC<HeaderProps> = () => {
             <span className="ml-2 text-2xl font-bold text-primary">
               Puana Packaging Products
             </span>
-          </button>
+          </button> */}
+
+            <button
+             onClick={handleLogoClick}
+             className="flex items-center focus:outline-none"
+                   >
+             <img src="/output-onlinepngtools.png" alt="Puana Packaging rounded-xl Products" className="h-10 w-16" />
+              <span className="ml-2 text-xl font-bold text-primary">
+                Puana Packaging Products
+             </span>
+            </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
