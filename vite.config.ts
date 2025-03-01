@@ -18,21 +18,21 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   server: {
-    port: 3000, // You can change the port if needed
+    port: 3000,
+    // Ensure Vite serves index.html for unknown routes
+    fs: {
+      strict: false,
+    },
   },
   build: {
-    outDir: 'dist', // Ensures the build output goes to 'dist'
+    outDir: 'dist',
   },
   preview: {
-    port: 5000, // Sets a different port for preview mode
+    port: 5000,
   },
   resolve: {
     alias: {
-      '@': '/src', // Helps with cleaner imports
+      '@': '/src',
     },
-  },
-  // Fix for SPA routing to prevent 404 on refresh
-  server: {
-    historyApiFallback: true,
   },
 });
