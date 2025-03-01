@@ -214,7 +214,7 @@ const About: React.FC = () => {
               WHO WE ARE
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-              Pioneers in Packaging Excellence
+              Pioneers in Flexible Packaging Excellence
             </h2>
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               Welcome to <strong>M/S Puana Packaging Products Pvt Ltd.</strong>, where innovation meets sustainability. 

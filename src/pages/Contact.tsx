@@ -8,7 +8,6 @@ import {
   FaBuilding, 
   FaUser, 
   FaPaperPlane, 
-  FaFax, 
   FaGlobe
 
 } from 'react-icons/fa';
@@ -113,24 +112,18 @@ const Contact: React.FC<ContactProps> = () => {
                       <p className="text-gray-700 font-semibold">Phone Numbers:</p>
                       <p className="text-gray-700">Sandeep Mandal - 9058370800</p>
                       <p className="text-gray-700">Chandan Singh Bisht - 98979 63106</p>
-                      <p className="text-gray-700">Customer Support - 1800-123-4567</p>
+                      <p className="text-gray-700">Customer Support - 9711210368</p>
                     </div>
                   </div>
                   <div className="flex items-start group">
                     <FaEnvelope className="h-6 w-6 text-accent mr-4 mt-1 group-hover:scale-110 transition-transform" />
                     <div>
                       <p className="text-gray-700 font-semibold">Email:</p>
-                      <p className="text-gray-700">puanaproducts@gmail.com</p>
-                      <p className="text-gray-700">support@puanaproducts.com</p>
+                      <p className="text-gray-700">sales@puanapackaging.com</p>
+                    
                     </div>
                   </div>
-                  <div className="flex items-start group">
-                    <FaFax className="h-6 w-6 text-accent mr-4 mt-1 group-hover:scale-110 transition-transform" />
-                    <div>
-                      <p className="text-gray-700 font-semibold">Fax:</p>
-                      <p className="text-gray-700">+91-5944-123456</p>
-                    </div>
-                  </div>
+                 
                   <div className="flex items-start group">
                     <FaBuilding className="h-6 w-6 text-accent mr-4 mt-1 group-hover:scale-110 transition-transform" />
                     <div>
@@ -228,14 +221,14 @@ const Contact: React.FC<ContactProps> = () => {
               </p>
               <div className="flex justify-center gap-6">
                 <a
-                  href="mailto:puanaproducts@gmail.com"
+                  href="mailto:sales@puanapackaging.com"
                   className="flex items-center text-accent hover:text-primary font-semibold transition-colors group"
                 >
                   Email Us
                   <FaPaperPlane className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
                 </a>
                 <a
-                  href="tel:9058370800"
+                  href="tel:98979 63106"
                   className="flex items-center text-accent hover:text-primary font-semibold transition-colors group"
                 >
                   Call Now
