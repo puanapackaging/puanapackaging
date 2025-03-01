@@ -1,138 +1,5 @@
 
 
-// import React, { useState, ChangeEvent, FormEvent } from 'react';
-// import { 
-//   FaMapMarkerAlt, 
-//   FaPhone, 
-//   FaEnvelope, 
-//   FaBuilding, 
-//   FaUser, 
-//   FaPaperPlane, 
-//   FaFax, 
-//   FaGlobe
-// } from 'react-icons/fa';
-// import Header from '../components/Header';
-// import Footer from '../components/Footer';
-
-// interface FormData {
-//   name: string;
-//   email: string;
-//   phone: string;
-//   message: string;
-// }
-
-// export default function Contact() {
-//   // Form state
-//   const [formData, setFormData] = useState<FormData>({
-//     name: '',
-//     email: '',
-//     phone: '',
-//     message: ''
-//   });
-
-//   // Handle input changes
-//   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-//     const { name, value } = e.target;
-//     setFormData((prev) => ({
-//       ...prev,
-//       [name]: value
-//     }));
-//   };
-
-//   // Handle form submission
-//   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-//     e.preventDefault();
-//     console.log('Contact Form Submitted:', formData);
-//     alert('Thank you for your message! We’ll get back to you soon.');
-//     setFormData({ name: '', email: '', phone: '', message: '' });
-//   };
-
-//   return (
-//     <div>
-//       <Header/>
-//       <section id="contact-us" className="py-20 bg-gradient-to-b from-secondary/5 to-white">
-//         <div className="relative h-96 mb-16 overflow-hidden">
-//           <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-primary/30 flex items-center justify-center">
-//             <div className="text-center text-white px-4">
-//               <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">Let’s Connect</h1>
-//               <p className="text-xl md:text-2xl max-w-3xl mx-auto drop-shadow-md">
-//                 Your gateway to collaboration, support, and innovation starts here
-//               </p>
-//             </div>
-//           </div>
-//         </div>
-//         <div className="container mx-auto px-4">
-//           <div className="grid md:grid-cols-2 gap-12">
-//             {/* Contact Form */}
-//             <div className="bg-white rounded-xl p-8 shadow-xl border border-secondary/20 relative overflow-hidden">
-//               <h3 className="text-2xl font-bold mb-6 text-primary flex items-center">
-//                 <FaEnvelope className="mr-3 text-accent h-8 w-8" /> Drop Us a Line
-//               </h3>
-//               <form onSubmit={handleSubmit} className="space-y-6">
-//                 <div className="relative">
-//                   <FaUser className="absolute top-3 left-3 text-gray-400" />
-//                   <input
-//                     type="text"
-//                     name="name"
-//                     value={formData.name}
-//                     onChange={handleChange}
-//                     placeholder="Full Name"
-//                     className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
-//                     required
-//                   />
-//                 </div>
-//                 <div className="relative">
-//                   <FaEnvelope className="absolute top-3 left-3 text-gray-400" />
-//                   <input
-//                     type="email"
-//                     name="email"
-//                     value={formData.email}
-//                     onChange={handleChange}
-//                     placeholder="Email Address"
-//                     className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
-//                     required
-//                   />
-//                 </div>
-//                 <div className="relative">
-//                   <FaPhone className="absolute top-3 left-3 text-gray-400" />
-//                   <input
-//                     type="tel"
-//                     name="phone"
-//                     value={formData.phone}
-//                     onChange={handleChange}
-//                     placeholder="Phone Number"
-//                     className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
-//                     required
-//                   />
-//                 </div>
-//                 <div className="relative">
-//                   <textarea
-//                     name="message"
-//                     value={formData.message}
-//                     onChange={handleChange}
-//                     placeholder="Your Message or Inquiry"
-//                     rows={5}
-//                     className="w-full p-4 border border-gray-300 rounded-lg"
-//                     required
-//                   />
-//                 </div>
-//                 <button
-//                   type="submit"
-//                   className="flex items-center justify-center w-full md:w-auto px-8 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-primary transition-colors group"
-//                 >
-//                   Send Message
-//                   <FaPaperPlane className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
-//                 </button>
-//               </form>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-//       <Footer/>
-//     </div>
-//   );
-// }
-
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { 
   FaMapMarkerAlt, 
@@ -142,8 +9,8 @@ import {
   FaUser, 
   FaPaperPlane, 
   FaFax, 
-  FaGlobe, 
-  FaArrowRight 
+  FaGlobe
+
 } from 'react-icons/fa';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
