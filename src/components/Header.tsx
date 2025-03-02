@@ -120,7 +120,7 @@ const Header: React.FC<HeaderProps> = () => {
                   isScrolled ? 'text-gray-200' : 'text-accent'
                 }`}
               />
-              <span>+91 90583 70800</span>
+              <span>+91 98979 63106</span>
             </a>
             <a
               href="mailto:puanaproducts@gmail.com"

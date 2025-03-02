@@ -104,7 +104,7 @@ const Hero: React.FC<HeroProps> = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm space-y-2 sm:space-y-0 sm:space-x-4">
           <div className="flex items-center space-x-2">
             <Mail className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
-            <span className='text-sm sm:text-lg'>puanaproducts@gmail.com</span>
+            <span className='text-sm sm:text-lg'>sales@puanapackaging.com</span>
           </div>
           <div className="flex items-center space-x-2 text-center">
             <MapPin className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
