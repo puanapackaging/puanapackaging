@@ -117,47 +117,39 @@ interface TestimonialsProps {}
 const Testimonials: React.FC<TestimonialsProps> = () => {
   const testimonials: Testimonial[] = [
     {
-      clientName: 'Lancer Food Products',
+      clientName: 'Anurag Mishra',
       quote: 'Puana Packaging transformed our product presentation with their innovative multilayer solutions. Their commitment to quality is unmatched!',
       image: 'https://images.unsplash.com/photo-1590650516494-0c8e4c27e8b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80', // Indian business professional 1
     },
     {
-      clientName: 'Ganga Dairy',
+      clientName: 'Shyam Dairy',
       quote: 'The eco-friendly packaging from Puana has helped us reduce our carbon footprint while maintaining product freshness. Highly recommended!',
       image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80', // Indian professional 2
     },
+  
     {
-      clientName: 'Godhan Masala Foods Limited',
-      quote: 'Working with Puana Packaging has elevated our brand. Their custom designs and sustainable practices align perfectly with our values.',
-      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80', // Indian professional 3
-    },
-    {
-      clientName: 'N G Food India',
+      clientName: 'Dr Ramesh Singh',
       quote: 'Puana’s packaging solutions are top-notch. They’ve helped us stand out in a competitive market with their creative designs.',
       image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80', // Indian professional 4
     },
     {
-      clientName: 'DSG Paper Private Limited',
+      clientName: 'Riya Johson',
       quote: 'The quality and durability of Puana’s packaging have been a game-changer for our business. Their team is a pleasure to work with!',
       image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80', // Indian professional 5
     },
     {
-      clientName: 'Damyaa (P.J) Foods Pvt Ltd',
+      clientName: 'Dheeraj (R.k) Foods Pvt Lt',
       quote: 'Puana Packaging has been a reliable partner in delivering high-quality packaging that meets our needs. Their innovation is impressive!',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80', // Indian professional 6
     },
     {
-      clientName: 'Raghusha Agrotech Pvt Ltd',
+      clientName: 'Bistro Pvt Ltd',
       quote: 'We trust Puana for all our packaging needs. Their sustainable solutions have enhanced our brand’s reputation.',
       image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80', // Indian professional 7
     },
+ 
     {
-      clientName: 'Utkarsh Food Products',
-      quote: 'Puana’s attention to detail and customer-centric approach make them the best in the packaging industry.',
-      image: 'https://images.unsplash.com/photo-1522529599102-1a6f7d1e4df5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80', // Indian professional 8
-    },
-    {
-      clientName: 'Satia Industries Limited',
+      clientName: ' Rapidship Limited',
       quote: 'The team at Puana Packaging delivered beyond our expectations. Their packaging solutions are both functional and aesthetically pleasing.',
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80', // Indian professional 9
     },

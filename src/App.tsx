@@ -37,7 +37,7 @@ import Careers from "./pages/Career";
 import Contact from "./pages/Contact";
 
 const App = () => {
-  const phoneNumber = "+919711210368"; // Your WhatsApp number
+  const phoneNumber = "+9193106 08890"; // Your WhatsApp number
   const message = "Hello, I am interested in your services!"; // Default message
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 

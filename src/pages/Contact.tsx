@@ -112,7 +112,7 @@ const Contact: React.FC<ContactProps> = () => {
                       <p className="text-gray-700 font-semibold">Phone Numbers:</p>
                       <p className="text-gray-700">Sandeep Mandal - 9058370800</p>
                       <p className="text-gray-700">Chandan Singh Bisht - 98979 63106</p>
-                      <p className="text-gray-700">Customer Support - 9711210368</p>
+                      <p className="text-gray-700">Customer Support - 93106 08890</p>
                     </div>
                   </div>
                   <div className="flex items-start group">
