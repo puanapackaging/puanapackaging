@@ -210,7 +210,7 @@ const Footer: React.FC = () => {
                 }}
               />
               <span className="ml-3 text-2xl md:text-3xl font-bold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-accent to-yellow-300 animate-text-reveal">
-                Puana Packaging
+                Puana Packaging Products
               </span>
             </Link>
             <p className="text-gray-300 text-sm md:text-base leading-relaxed">
