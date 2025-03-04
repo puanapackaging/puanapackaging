@@ -331,12 +331,17 @@ export default function Contact() {
                   <div>
                     <p className="text-gray-700">Sandeep Mandal - 9058370800</p>
                     <p className="text-gray-700">Chandan Singh Bisht - 98979 63106</p>
+                    <p className="text-gray-700">Support - 9310608890</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-6 w-6 text-accent mr-4" />
                   <p className="text-gray-700">puanaproducts@gmail.com</p>
                 </div>
+                  <div className="flex items-center">
+                                  <Mail className="h-6 w-6 text-accent mr-4" />
+                                  <p className="text-gray-700">sales@puanapackaging.com</p>
+                    </div>
                 <div className="flex items-center">
                   <Building className="h-6 w-6 text-accent mr-4" />
                   <div>

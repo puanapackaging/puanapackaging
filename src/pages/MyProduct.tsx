@@ -345,7 +345,7 @@ const MyProducts: React.FC<MyProductsProps> = () => {
         <div
           className="h-80 md:h-96 w-full bg-cover bg-center flex items-center justify-center text-white relative bg-no-repeat"
           style={{
-            backgroundImage: "url('/food_foil 2.1.jpg')",
+            backgroundImage: "url('/new/roll.avif')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
